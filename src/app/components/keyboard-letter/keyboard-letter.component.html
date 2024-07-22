@@ -1,0 +1,14 @@
+<div
+  class="group py-3 px-7 rounded-3xl bg-white text-dark-navy"
+  [ngClass]="{
+  'hover:bg-blue cursor-pointer':!disabled,
+  'opacity-25 cursor-not-allowed':disabled,
+}"
+>
+  <h3
+    class="heading-m text-current"
+    [ngClass]="{ 'group-hover:text-white': !disabled }"
+  >
+    {{ letter }}
+  </h3>
+</div>
