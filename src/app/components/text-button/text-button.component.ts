@@ -27,24 +27,24 @@ const buttonStyles = cva(
         pink: ['text-white', 'bg-button-pink', 'before:shadow-button-pink'],
       },
       size: {
-        normal: [
+        sm: [
           'heading-s',
           'py-3',
           'px-8',
           'rounded-[40px]',
           'before:rounded-[40px]',
         ],
-        xl: [
+        lg: [
+          'w-full',
           'heading-m',
           'lgmd:rounded-[40px]',
           'lgmd:before:rounded-[40px]',
           'sm:rounded-[20px]',
           'sm:before:rounded-[20px]',
-          'lg:w-[500px]',
+          'lg:min-w-[250px]',
           'lg:p-[66px]',
-          'md:w-[324px]',
+          'md:min-w-[200px]',
           'md:p-[62px]',
-          'sm:w-[100%]',
           'sm:p-6',
         ],
       },
@@ -52,7 +52,7 @@ const buttonStyles = cva(
 
     defaultVariants: {
       color: 'blue',
-      size: 'normal',
+      size: 'sm',
     },
   }
 );

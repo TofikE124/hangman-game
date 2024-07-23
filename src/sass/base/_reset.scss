@@ -29,7 +29,19 @@ ul {
 body {
   min-height: 100vh;
   font-family: "Mouse Memoirs", sans-serif;
-  background: linear-gradient(180deg, #130556 0%, #000 100%);
+  background-color: linear-gradient(180deg, #130556 0%, #000 100%);
+  background-size: cover;
+
+  @screen sm {
+    background-image: url("/assets/images/background-mobile.svg");
+  }
+
+  @screen md {
+    background-image: url("/assets/images/background-tablet.svg");
+  }
+  @screen lg {
+    background-image: url("/assets/images/background-desktop.svg");
+  }
 }
 
 /* Make images and pictures easier to work with */

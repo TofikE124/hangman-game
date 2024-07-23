@@ -1,0 +1,35 @@
+@layer utilities {
+  .text-gradient-primary {
+    position: relative;
+
+    @apply bg-text-primary;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    &::after {
+      content: "Pick a Category";
+      font-size: inherit;
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      text-shadow: 8px 0px 0 #243041, 8px 1px 0 #243041, 8px 2px 0 #243041,
+        7px 3px 0 #243041, 7px 4px 0 #243041, 7px 5px 0 #243041,
+        6px 5px 0 #243041, 5px 6px 0 #243041, 4px 7px 0 #243041,
+        4px 7px 0 #243041, 3px 8px 0 #243041, 2px 8px 0 #243041,
+        1px 8px 0 #243041, 0px 8px 0 #243041, -1px 8px 0 #243041,
+        -2px 8px 0 #243041, -3px 7px 0 #243041, -4px 7px 0 #243041,
+        -5px 6px 0 #243041, -6px 6px 0 #243041, -6px 5px 0 #243041,
+        -7px 4px 0 #243041, -7px 3px 0 #243041, -8px 2px 0 #243041,
+        -8px 1px 0 #243041, -8px 0px 0 #243041, -8px 0px 0 #243041,
+        -8px -1px 0 #243041, -8px -2px 0 #243041, -7px -3px 0 #243041,
+        -7px -4px 0 #243041, -6px -5px 0 #243041, -6px -6px 0 #243041,
+        -5px -6px 0 #243041, -4px -7px 0 #243041, -3px -7px 0 #243041,
+        -2px -8px 0 #243041, -1px -8px 0 #243041, 0px -8px 0 #243041,
+        1px -8px 0 #243041, 2px -8px 0 #243041, 3px -8px 0 #243041,
+        4px -7px 0 #243041, 4px -7px 0 #243041, 5px -6px 0 #243041,
+        6px -5px 0 #243041, 7px -5px 0 #243041, 7px -4px 0 #243041,
+        7px -3px 0 #243041, 8px -2px 0 #243041, 8px -1px 0 #243041;
+    }
+  }
+}

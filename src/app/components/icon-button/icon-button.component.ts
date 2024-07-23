@@ -8,7 +8,6 @@ import { twMerge } from 'tailwind-merge';
 
 const buttonStyles = cva(
   [
-    'size-[200px]',
     'rounded-full',
     'overflow-hidden',
     'grid',
@@ -28,12 +27,24 @@ const buttonStyles = cva(
   {
     variants: {
       color: {
-        blue: ['text-white', 'bg-blue', 'before:shadow-button-blue'],
-        pink: ['text-white', 'bg-button-pink', 'before:shadow-button-pink'],
+        pink: ['text-white', 'bg-button-pink'],
+      },
+      size: {
+        sm: [
+          'lg:size-[90px]',
+          'lg:p-6',
+          'md:size-16',
+          'md:p-4',
+          'sm:size-10',
+          'sm:p-3',
+          'before:shadow-icon-pink-sm',
+        ],
+        lg: ['size-[200px]', 'before:shadow-icon-pink-lg'],
       },
     },
     defaultVariants: {
-      color: 'blue',
+      color: 'pink',
+      size: 'sm',
     },
   }
 );
@@ -48,10 +59,15 @@ type ButtonVariants = VariantProps<typeof buttonStyles>;
   styleUrl: './icon-button.component.scss',
 })
 export class IconButtonComponent {
+  @Input('iconSrc') iconSrc!: string;
   @Input('color') color: ButtonVariants['color'];
+  @Input('size') size: ButtonVariants['size'];
   @Input('className') className: string = '';
 
   get buttonClasses(): string {
-    return twMerge(buttonStyles({ color: this.color }), this.className);
+    return twMerge(
+      buttonStyles({ color: this.color, size: this.size }),
+      this.className
+    );
   }
 }

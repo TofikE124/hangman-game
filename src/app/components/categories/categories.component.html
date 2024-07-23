@@ -1,0 +1,27 @@
+<div
+  class="lg:p-[112px] lg:space-y-[155px] md:pt-[60px] md:px-10 md:space-y-[114px] sm:pt-8 sm:px-6 sm:space-y-[100px]"
+>
+  <div class="flex items-center">
+    <a routerLink="/">
+      <icon-button
+        iconSrc="/assets/images/icon-back.svg"
+        color="pink"
+      ></icon-button>
+    </a>
+
+    <text-gradient
+      text="Pick A Category"
+      class="heading-xl lgmd:mx-auto sm:ml-auto"
+    ></text-gradient>
+  </div>
+  <div
+    class="grid lg:grid-cols-3 md:grid-cols-2 gap-x-8 lg:gap-y-[50px] md:gap-y-8 md:place-items-center sm:gap-y-4"
+  >
+    <text-button
+      size="lg"
+      *ngFor="let category of categories"
+      [routerLink]="['/play', category]"
+      >{{ category }}</text-button
+    >
+  </div>
+</div>
