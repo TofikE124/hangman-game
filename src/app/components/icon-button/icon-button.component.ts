@@ -36,7 +36,7 @@ const buttonStyles = cva(
           'md:size-16',
           'md:p-4',
           'sm:size-10',
-          'sm:p-3',
+          'sm:p-2',
           'before:shadow-icon-pink-sm',
         ],
         lg: ['size-[200px]', 'before:shadow-icon-pink-lg'],

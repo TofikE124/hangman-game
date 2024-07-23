@@ -1,0 +1,8 @@
+<div class="flex items-center gap-6 flex-wrap">
+  <keyboard-letter
+    *ngFor="let letter of letters"
+    [letter]="letter"
+    [disabled]="termService.isUsedLetter(letter)"
+    (click)="termService.chooseLetter(letter)"
+  ></keyboard-letter>
+</div>

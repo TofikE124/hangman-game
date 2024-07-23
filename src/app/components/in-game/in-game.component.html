@@ -1,4 +1,6 @@
-<div class="lgmd:pt-[60px] lg:px-[110px] md:px-10 sm:pt-[50px] sm:px-6">
+<div
+  class="lgmd:pt-[40px] lg:px-[110px] max-w-[1300px] mx-auto md:px-10 sm:pt-[50px] sm:px-6"
+>
   <div class="flex items-center justify-between">
     <div class="flex items-center gap-14">
       <icon-button
@@ -8,20 +10,12 @@
       ></icon-button>
       <h1 class="heading-l text-white">{{ category }}</h1>
     </div>
-    <div>123</div>
+    <health-bar [health]="termService.health" />
   </div>
-  <div class="lg:mt-[88px] md:mt-[114px] sm:mt-[78px]">
-    <div class="flex items-center justify-evenly flex-wrap gap-4">
-      <div *ngFor="let word of getWordsFromTerm()">
-        <div class="flex items-center gap-4">
-          <playable-letter
-            *ngFor="let char of word.split('')"
-            [letter]="char"
-            [disabled]="false"
-          ></playable-letter>
-        </div>
-      </div>
-    </div>
+  <div class="lg:mt-[88px] md:mt-[60px] sm:mt-[78px]">
+    <playable-letters [term]="term"></playable-letters>
   </div>
-  <div class="lg:mt-[120px] mdsm:mt-[134px]"></div>
+  <div class="lg:mt-[100px] mdsm:mt-[80px] pb-[50px]">
+    <keyboard-letters></keyboard-letters>
+  </div>
 </div>

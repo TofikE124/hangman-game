@@ -206,7 +206,7 @@ export const TermsMap: Record<Category, Term[]> = {
   ],
 };
 
-const uppercaseLetters = [
+export const uppercaseLetters = [
   'A',
   'B',
   'C',
