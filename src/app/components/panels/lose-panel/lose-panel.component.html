@@ -1,0 +1,18 @@
+<panel [name]="panels.LOSE" title="You Lose" [closedByOverlay]="false">
+  <div class="flex flex-col items-center gap-8">
+    <text-button (click)="panelService.closePanel(panels.LOSE)"
+      >Play Again</text-button
+    >
+    <text-button
+      routerLink="/categories"
+      (click)="panelService.closePanel(panels.LOSE)"
+      >New Category</text-button
+    >
+    <text-button
+      color="pink"
+      routerLink="/"
+      (click)="panelService.closePanel(panels.LOSE)"
+      >Quit Game</text-button
+    >
+  </div>
+</panel>

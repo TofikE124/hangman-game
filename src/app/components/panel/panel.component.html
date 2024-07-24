@@ -1,0 +1,29 @@
+<div
+  class="fixed inset-0 z-40 grid place-items-center transition-[visibility] duration-300"
+  [ngClass]="{
+    visible: panelService.isPanelOepn(name),
+    invisible: !panelService.isPanelOepn(name)
+  }"
+>
+  <div
+    class="relative z-50 bg-panel shadow-panel transition-transform duration-300 lgmd:pt-[120px] lgmd:pb-[70px] sm:pt-[104px] lgmd:px-[160px] sm:pb-[87px] sm:px-6 rounded-[72px]"
+    [ngClass]="{
+      'scale-0': !panelService.isPanelOepn(name),
+      'scale-100': panelService.isPanelOepn(name)
+    }"
+  >
+    <text-gradient
+      [text]="title"
+      class="absolute top-[-72px] left-1/2 -translate-x-1/2 heading-xl"
+    ></text-gradient>
+    <ng-content> </ng-content>
+  </div>
+  <div
+    class="absolute inset-0 bg-black/75 transition-opacity duration-300"
+    [ngClass]="{
+      'opacity-0 invisible': !panelService.isPanelOepn(name),
+      'opacity-100 visible': panelService.isPanelOepn(name)
+    }"
+    (click)="handleOverlayClick()"
+  ></div>
+</div>

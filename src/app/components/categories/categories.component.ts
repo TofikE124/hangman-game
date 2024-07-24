@@ -4,7 +4,8 @@ import { TextButtonComponent } from '../text-button/text-button.component';
 import { TextGradientComponent } from '../typography/text-gradient/text-gradient.component';
 import { RouterModule } from '@angular/router';
 import { NgFor } from '@angular/common';
-import { Category } from '../../../constants/data';
+import { Category } from '../../constants/data';
+import { BgOverlayComponent } from '../bg-overlay/bg-overlay.component';
 
 @Component({
   selector: 'app-categories',
@@ -15,6 +16,7 @@ import { Category } from '../../../constants/data';
     TextGradientComponent,
     RouterModule,
     NgFor,
+    BgOverlayComponent,
   ],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.scss',

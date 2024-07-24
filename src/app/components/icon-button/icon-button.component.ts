@@ -39,7 +39,13 @@ const buttonStyles = cva(
           'sm:p-2',
           'before:shadow-icon-pink-sm',
         ],
-        lg: ['size-[200px]', 'before:shadow-icon-pink-lg'],
+        lg: [
+          'lgmd:size-[200px]',
+          'lgmd:p-[70px]',
+          'sm:size-[160px]',
+          'sm:p-[55px]',
+          'before:shadow-icon-pink-lg',
+        ],
       },
     },
     defaultVariants: {

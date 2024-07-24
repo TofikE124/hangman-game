@@ -1,0 +1,18 @@
+<panel [name]="panels.PAUSED" title="Paused">
+  <div class="flex flex-col items-center gap-8">
+    <text-button (click)="panelService.closePanel(panels.PAUSED)"
+      >Continue</text-button
+    >
+    <text-button
+      routerLink="/categories"
+      (click)="panelService.closePanel(panels.PAUSED)"
+      >New Category</text-button
+    >
+    <text-button
+      color="pink"
+      routerLink="/"
+      (click)="panelService.closePanel(panels.PAUSED)"
+      >Quit Game</text-button
+    >
+  </div>
+</panel>

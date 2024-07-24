@@ -1,6 +1,6 @@
 import { NgFor } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { Term } from '../../../../constants/data';
+import { Term } from '../../../constants/data';
 import { PlayableLetterComponent } from '../../playable-letter/playable-letter.component';
 import { TermService } from '../../../services/term.service';
 

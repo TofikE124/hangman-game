@@ -1,5 +1,5 @@
 <div
-  class="lgmd:pt-[40px] lg:px-[110px] max-w-[1300px] mx-auto md:px-10 sm:pt-[50px] sm:px-6"
+  class="lgmd:pt-[40px] lg:px-[110px] max-w-[1500px] mx-auto md:px-10 sm:pt-[50px] sm:px-6"
 >
   <div class="flex items-center justify-between">
     <div class="flex items-center gap-14">
@@ -7,6 +7,7 @@
         size="sm"
         iconSrc="/assets/images/icon-menu.svg"
         color="pink"
+        (click)="panelService.openPanel(panels.PAUSED)"
       ></icon-button>
       <h1 class="heading-l text-white">{{ category }}</h1>
     </div>
@@ -19,3 +20,7 @@
     <keyboard-letters></keyboard-letters>
   </div>
 </div>
+<pause-panel></pause-panel>
+<win-panel></win-panel>
+<lose-panel></lose-panel>
+<bg-overlay></bg-overlay>

@@ -8,6 +8,8 @@ import { twMerge } from 'tailwind-merge';
 
 const buttonStyles = cva(
   [
+    'h-full',
+    'text-center',
     'overflow-hidden',
     'relative',
     `after:content-[' ']`,
@@ -30,7 +32,7 @@ const buttonStyles = cva(
         sm: [
           'heading-s',
           'py-3',
-          'px-8',
+          'px-16',
           'rounded-[40px]',
           'before:rounded-[40px]',
         ],
