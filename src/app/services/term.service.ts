@@ -42,6 +42,12 @@ export class TermService {
     this._health = 100;
     this._correctLetters = [];
     this._wrongLetters = [];
+    this.gameResultSubject.next(null);
+  }
+
+  playAgain() {
+    this.resetGame();
+    this.pickTerm(this.category);
   }
 
   chooseLetter(letter: string) {
@@ -90,8 +96,12 @@ export class TermService {
   checkGameWon() {
     return this.term.name
       .toLocaleLowerCase()
+      .split(' ')
+      .join('')
       .split('')
-      .every((letter) => this.correctLetters.includes(letter.toLowerCase()));
+      .every((letter) =>
+        this.correctLetters.map((l) => l.toLocaleLowerCase()).includes(letter)
+      );
   }
 
   get term() {
@@ -109,7 +119,7 @@ export class TermService {
   get health() {
     return this._health;
   }
-  get gameResult() {
+  get gameResult$() {
     return this._gameResult;
   }
 }

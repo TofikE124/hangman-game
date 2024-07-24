@@ -1,3 +1,4 @@
+import { TermService } from './../../../services/term.service';
 import { Component } from '@angular/core';
 import { TextButtonComponent } from '../../text-button/text-button.component';
 import { PanelComponent } from '../../panel/panel.component';
@@ -12,7 +13,15 @@ import { PanelService } from '../../../services/panel.service';
   styleUrl: './lose-panel.component.scss',
 })
 export class LosePanelComponent {
-  constructor(public panelService: PanelService) {}
+  constructor(
+    private termService: TermService,
+    public panelService: PanelService
+  ) {}
 
   panels = Panels;
+
+  handlePlayAgain() {
+    this.panelService.closePanel(this.panels.LOSE);
+    this.termService.playAgain();
+  }
 }

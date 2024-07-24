@@ -1,8 +1,6 @@
 <panel [name]="panels.WIN" title="You Win" [closedByOverlay]="false">
   <div class="flex flex-col items-center gap-8">
-    <text-button (click)="panelService.closePanel(panels.WIN)"
-      >Play Again</text-button
-    >
+    <text-button (click)="handlePlayAgain()">Play Again</text-button>
     <text-button
       routerLink="/categories"
       (click)="panelService.closePanel(panels.WIN)"

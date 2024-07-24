@@ -1,1 +1,35 @@
-<p>rules works!</p>
+<div class="lg:pt-20 sm:pt-[60px] lg:px-[112px] md:px-10 sm:px-6">
+  <div class="flex items-center">
+    <icon-button
+      routerLink="/"
+      iconSrc="/assets/images/icon-back.svg"
+    ></icon-button>
+    <text-gradient
+      text="How To Play"
+      class="heading-xl mx-auto"
+    ></text-gradient>
+  </div>
+  <div
+    class="lg:mt-[60px] md:mt-[100px] sm:mt-20 flex mdsm:flex-col lgmd:gap-8 sm:gap-6 justify-center"
+  >
+    <rule
+      order="01"
+      title="Choose A Category"
+      description="First, choose a word category, like animals or movies. The computer then randomly selects a secret word from that topic and shows you blanks for each letter of the word."
+    >
+    </rule>
+    <rule
+      order="02"
+      title="Guess Letters"
+      description="Take turns guessing letters. The computer fills in the relevant blank spaces if your guess is correct. If it’s wrong, you lose some health, which empties after eight incorrect guesses."
+    >
+    </rule>
+    <rule
+      order="03"
+      title="Win Or Lose"
+      description="You win by guessing all the letters in the word before your health runs out. If the health bar empties before you guess the word, you lose."
+    >
+    </rule>
+  </div>
+</div>
+<bg-overlay> </bg-overlay>

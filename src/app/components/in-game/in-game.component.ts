@@ -37,7 +37,6 @@ import { LosePanelComponent } from '../panels/lose-panel/lose-panel.component';
 })
 export class InGameComponent implements OnInit {
   category!: Category;
-  term!: Term;
 
   panels = Panels;
 
@@ -49,10 +48,10 @@ export class InGameComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       this.category = params.get('category') as Category;
-      this.term = this.termService.pickTerm(this.category);
+      this.termService.pickTerm(this.category);
     });
 
-    this.termService.gameResult.subscribe((result) => {
+    this.termService.gameResult$.subscribe((result) => {
       if (!result) {
       } else {
         if (result?.gameWon) this.panelService.openPanel(Panels.WIN);
