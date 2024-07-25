@@ -36,6 +36,11 @@ export class TermService {
     const index = Math.floor(Math.random() * TermsMap[this.category].length);
     this._term = TermsMap[this.category][index];
     this.resetGame();
+    this.soundService.preloadSounds([
+      Sound.Correct,
+      Sound.Wrong,
+      Sound.Confetti,
+    ]);
     return this._term;
   }
 

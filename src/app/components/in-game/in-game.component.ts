@@ -17,6 +17,7 @@ import { WinPanelComponent } from '../panels/win-panel/win-panel.component';
 import { LosePanelComponent } from '../panels/lose-panel/lose-panel.component';
 import { Title } from '@angular/platform-browser';
 import { title } from 'process';
+import { SoundService } from '../../services/sound.service';
 
 @Component({
   selector: 'app-in-game',

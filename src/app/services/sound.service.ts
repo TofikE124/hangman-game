@@ -21,6 +21,11 @@ export class SoundService {
 
   soundElementMap: { [x: string]: HTMLAudioElement | null } = {};
 
+  preloadSounds(sounds: Sound[]): Promise<void[]> {
+    const promises = sounds.map((sound) => this.loadAudio(sound));
+    return Promise.all(promises);
+  }
+
   playSound(sound: Sound, volume: number = 100) {
     const soundPath = soundMap[sound];
     if (!soundPath) {
@@ -42,5 +47,18 @@ export class SoundService {
     audio.src = soundMap[sound];
     audio.load();
     return audio;
+  }
+
+  private loadAudio(sound: Sound): Promise<void> {
+    return new Promise((resolve, reject) => {
+      const audio = new Audio();
+      audio.src = soundMap[sound];
+      audio.preload = 'auto';
+      audio.oncanplaythrough = () => {
+        this.soundElementMap[sound] = audio;
+        resolve();
+      };
+      audio.onerror = () => reject(`Failed to load audio: ${sound}`);
+    });
   }
 }
