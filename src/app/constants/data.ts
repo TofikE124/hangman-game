@@ -36,7 +36,7 @@ export const TermsMap: Record<Category, Term[]> = {
     { name: 'The Dark Knight' },
     { name: 'The Big Lebowski' },
     { name: 'The Wizard of Oz' },
-    { name: "Schindler's List" },
+    { name: 'Schindlers List' },
     { name: 'Toy Story' },
     { name: 'The Silence of the Lambs' },
     { name: 'Alien' },

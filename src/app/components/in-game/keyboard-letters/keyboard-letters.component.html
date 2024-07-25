@@ -3,6 +3,6 @@
     *ngFor="let letter of letters"
     [letter]="letter"
     [disabled]="termService.isUsedLetter(letter)"
-    (click)="termService.chooseLetter(letter)"
+    (onClick)="termService.chooseLetter($event)"
   ></keyboard-letter>
 </div>

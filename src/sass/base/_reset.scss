@@ -25,6 +25,11 @@ ul {
   margin: 0;
 }
 
+html,
+body {
+  overflow: hidden;
+}
+
 /* Set up the body */
 body {
   min-height: 100vh;

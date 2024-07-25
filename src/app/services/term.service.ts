@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Category, Term, TermsMap } from '../constants/data';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Sound, SoundService } from './sound.service';
+import confetti from 'canvas-confetti';
 
 enum Player {
   PLAYER_ONE = 'Player One',
@@ -68,8 +69,7 @@ export class TermService {
     this.wrongGuesses++;
     this._health =
       ((this.allowedGuesses - this.wrongGuesses) / this.allowedGuesses) * 100;
-
-    this.soundService.playSound(Sound.Wrong, 40);
+    if (!this.checkGameLost()) this.soundService.playSound(Sound.Wrong, 40);
   }
 
   handleCorrectLetter(letter: string) {
@@ -94,11 +94,20 @@ export class TermService {
   }
 
   updateGameResult() {
-    if (this.checkGameWon())
-      this.gameResultSubject.next({ gameWon: true, winner: null });
-    else if (this.wrongGuesses == this.allowedGuesses)
-      this.gameResultSubject.next({ gameWon: false, winner: null });
+    if (this.checkGameWon()) this.handleWin();
+    else if (this.wrongGuesses == this.allowedGuesses) this.handleLost();
     else this.gameResultSubject.next(null);
+  }
+
+  handleWin() {
+    this.gameResultSubject.next({ gameWon: true, winner: null });
+    this.soundService.playSound(Sound.Confetti);
+    this.celebrate();
+  }
+
+  handleLost() {
+    this.gameResultSubject.next({ gameWon: false, winner: null });
+    this.triggerShakeEffect();
   }
 
   checkGameWon() {
@@ -110,6 +119,28 @@ export class TermService {
       .every((letter) =>
         this.correctLetters.map((l) => l.toLocaleLowerCase()).includes(letter)
       );
+  }
+  checkGameLost() {
+    return this.wrongGuesses >= this.allowedGuesses;
+  }
+
+  celebrate() {
+    const duration = 3000; // in milliseconds
+    confetti({
+      particleCount: 100,
+      spread: 160,
+      origin: { y: 0.6 },
+    });
+
+    setTimeout(() => confetti.reset(), duration);
+  }
+
+  triggerShakeEffect() {
+    const body = document.querySelector('body')!;
+    body.classList.add('shake');
+    setTimeout(() => {
+      body.classList.remove('shake');
+    }, 1000);
   }
 
   get term() {

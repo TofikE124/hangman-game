@@ -3,12 +3,14 @@ import { Injectable } from '@angular/core';
 export enum Sound {
   Correct = 'correct',
   Wrong = 'weong',
+  Confetti = 'Confetti',
   // ... other sounds
 }
 
 const soundMap: Record<Sound, string> = {
   [Sound.Correct]: '/assets/sounds/correct-sound.mp3',
   [Sound.Wrong]: '/assets/sounds/wrong-sound.mp3',
+  [Sound.Confetti]: '/assets/sounds/confetti-sound.mp3',
 };
 
 @Injectable({

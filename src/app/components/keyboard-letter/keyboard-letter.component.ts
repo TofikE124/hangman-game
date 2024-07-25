@@ -1,5 +1,6 @@
 import { NgClass } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { KeyboardService } from '../../services/keyboard.service';
 
 @Component({
   selector: 'keyboard-letter',
@@ -8,8 +9,22 @@ import { Component, Input } from '@angular/core';
   templateUrl: './keyboard-letter.component.html',
   styleUrl: './keyboard-letter.component.scss',
 })
-export class KeyboardLetterComponent {
+export class KeyboardLetterComponent implements OnInit {
   @Input('letter') letter: string = ' ';
   @Input('disabled')
   disabled: boolean = false;
+
+  @Output('onClick') onClick = new EventEmitter<string>();
+
+  constructor(private keyboardService: KeyboardService) {}
+
+  ngOnInit(): void {
+    this.keyboardService.register(this.letter.toLowerCase(), () => {
+      this.handleClick();
+    });
+  }
+
+  handleClick() {
+    this.onClick.emit(this.letter);
+  }
 }
