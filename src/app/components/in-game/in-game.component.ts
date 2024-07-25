@@ -15,6 +15,8 @@ import { PausePanelComponent } from '../panels/pause-panel/pause-panel.component
 import { BgOverlayComponent } from '../bg-overlay/bg-overlay.component';
 import { WinPanelComponent } from '../panels/win-panel/win-panel.component';
 import { LosePanelComponent } from '../panels/lose-panel/lose-panel.component';
+import { Title } from '@angular/platform-browser';
+import { title } from 'process';
 
 @Component({
   selector: 'app-in-game',
@@ -43,12 +45,14 @@ export class InGameComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     public termService: TermService,
-    public panelService: PanelService
+    public panelService: PanelService,
+    private titleService: Title
   ) {}
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       this.category = params.get('category') as Category;
       this.termService.pickTerm(this.category);
+      this.titleService.setTitle(`Hangman | ${this.category}`);
     });
 
     this.termService.gameResult$.subscribe((result) => {
