@@ -4,11 +4,12 @@ import { TextButtonComponent } from '../../text-button/text-button.component';
 import { PanelComponent } from '../../panel/panel.component';
 import { Panels } from '../../../constants/Panels';
 import { PanelService } from '../../../services/panel.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'lose-panel',
   standalone: true,
-  imports: [TextButtonComponent, PanelComponent],
+  imports: [TextButtonComponent, PanelComponent, RouterModule],
   templateUrl: './lose-panel.component.html',
   styleUrl: './lose-panel.component.scss',
 })

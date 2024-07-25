@@ -4,11 +4,12 @@ import { PanelService } from '../../../services/panel.service';
 import { PanelComponent } from '../../panel/panel.component';
 import { TextButtonComponent } from '../../text-button/text-button.component';
 import { TermService } from '../../../services/term.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'win-panel',
   standalone: true,
-  imports: [PanelComponent, TextButtonComponent],
+  imports: [PanelComponent, TextButtonComponent, RouterModule],
   templateUrl: './win-panel.component.html',
   styleUrl: './win-panel.component.scss',
 })

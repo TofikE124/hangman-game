@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Category, Term, TermsMap } from '../constants/data';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Sound, SoundService } from './sound.service';
 
 enum Player {
   PLAYER_ONE = 'Player One',
@@ -27,7 +28,7 @@ export class TermService {
   private gameResultSubject = new BehaviorSubject<null | GameResult>(null);
   private _gameResult = this.gameResultSubject.asObservable();
 
-  constructor() {}
+  constructor(private soundService: SoundService) {}
 
   pickTerm(category: Category) {
     this.category = category;
@@ -54,7 +55,7 @@ export class TermService {
     if (letter.length != 1 || this.gameResultSubject.value) return;
 
     if (this._term.name.toLowerCase().includes(letter.toLowerCase())) {
-      if (!this.isCorrectLetter(letter)) this._correctLetters.push(letter);
+      if (!this.isCorrectLetter(letter)) this.handleCorrectLetter(letter);
     } else {
       if (!this.isWrongLetter(letter)) this.handleWrongLetter(letter);
     }
@@ -67,6 +68,13 @@ export class TermService {
     this.wrongGuesses++;
     this._health =
       ((this.allowedGuesses - this.wrongGuesses) / this.allowedGuesses) * 100;
+
+    this.soundService.playSound(Sound.Wrong, 40);
+  }
+
+  handleCorrectLetter(letter: string) {
+    this._correctLetters.push(letter);
+    this.soundService.playSound(Sound.Correct);
   }
 
   isWrongLetter(letter: string) {
